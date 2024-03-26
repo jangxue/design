@@ -1,0 +1,32 @@
+<template>
+  <main>
+    <ContentDoc />
+  </main>
+</template>
+
+<style>
+@font-face {
+  font-family: "3270NerdFontRegular";
+  src: url("/font/3270NerdFont-Regular.ttf") format("truetype");
+}
+
+/* font-family: "Big Shoulders Text", sans-serif; */
+@import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Text:wght@100..900&display=swap');
+
+/* font-family: "Poppins", sans-serif; */
+@import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Text:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+body {
+  padding: 0px;
+  margin: 0px;
+  width: 85%;
+  height: 100%;
+  display: block;
+  background: #18191a;
+}
+::-webkit-scrollbar {
+  width: 0px;
+  background-color: transparent;
+}
+</style>
