@@ -15,7 +15,7 @@ const generateRandomChars = () => {
 
 onMounted(() => {
   generateRandomChars();
-  timerId = setInterval(generateRandomChars, 300);
+  timerId = setInterval(generateRandomChars, 100);
   const updateSize = () => {
     fullscreenContent.value.style.fontSize = `${
       Math.min(window.innerWidth, window.innerHeight) / 20
