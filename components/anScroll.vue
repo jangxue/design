@@ -7,21 +7,38 @@
 </template>
 
 <script setup>
-import { ref, computed } from "vue";
+import { ref, defineProps, onMounted } from "vue";
 
-const originalText =
-  "OCEAN,SIPHER,SHRAPNEL,SHOWTIME,SENSE FINANCE,SAFFRON FINANCE,SADDLE,RIBBON FINANCE,REVEL,QUANTSTAMP,QUADRATA,POOLTOGETHER,POLYGON,PLEASRDAO,PARTYDAO,PARCL,PARADIGM";
+const props = defineProps({
+    text: {
+    type: String,
+    default: "Jiangxue Lab,jiangxue Team,Web3 Acg lab,Web3in Tech,Dexnav,sifone,NPO NETWORK,jointNOW,IENP,CASSI,Wet Spring Alert,spec,seti@home web3,crg fps,Asteroid,splash,Nicho,ienn,hucsrc,zhongshan"
+  }
+});
+const originalText = props.text;
 
-const texts = computed(() => originalText.split(","));
+let arr = originalText.split(",");
+const texts = ref(arr);
 
-const duration = ref(10); 
+onMounted(() => {
+  setInterval(() => {
+    for (let i = arr.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * i);
+      const temp = arr[i];
+      arr.splice(i, 1, arr[j]);
+      arr.splice(j, 1, temp);
+    }
+    texts.value = [...arr];
+  }, 1000);
+});
+
+const duration = ref(10);
 </script>
 
 <style scoped>
 .scroll-container {
   overflow: hidden;
   height: 50px;
-  border: 1px solid red;
   width: min-content;
 }
 
@@ -33,16 +50,9 @@ const duration = ref(10);
   display: table-row-group;
 }
 ul li {
-    padding: 0;
-    margin: 0;
-    list-style-type: none;
-}
-@keyframes scroll {
-  0% {
-    transform: translateY(0);
-  }
-  100% {
-    transform: translateY(-100%);
-  }
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+  text-transform: uppercase;
 }
 </style>

@@ -19,8 +19,11 @@ const scrollTexts = ref([
 <template>
   <view-background />
   <main class="bottom">
-    <div class="title">
-      <div class="title-layout">
+    <div class="bottom-layout">
+      <div class="title">
+        <div class="title-layout">
+          <p>JIANGXUE</p>
+        </div>
         <an-font
           class="span"
           :text="[
@@ -29,16 +32,21 @@ const scrollTexts = ref([
             'DISTRIBUTED COMPUTING',
           ]"
         />
-        <p>JIANGXUE<br />design team</p>
+      </div>
+      <p class="f">design team</p>
+      <div class="scr">
+        <p class="scr-title">INVESTMENTS</p>
+        <an-scroll class="scr-scroll" />
       </div>
     </div>
-    <p class="scr-title">INVESTMENTS</p>
-    <an-scroll />
   </main>
 </template>
 
 <style scoped>
 /* scr */
+.scr {
+  margin-top: 3rem;
+}
 .scr-title {
   font-family: "3270NerdFontRegular";
   background: #ffffff;
@@ -48,6 +56,10 @@ const scrollTexts = ref([
   margin-left: 0px;
   width: fit-content;
 }
+.scr-scroll {
+  margin-top: 1rem;
+  height: 10rem;
+}
 /* layout */
 .bottom {
   z-index: 1000;
@@ -56,14 +68,22 @@ const scrollTexts = ref([
   height: 100%;
   width: -webkit-fill-available;
 }
+.bottom-layout {
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
 .title {
   display: flex;
   text-transform: uppercase;
   aspect-ratio: 16/6;
   align-items: flex-end;
 }
+.f {
+  text-transform: uppercase;
+}
 .title-layout {
   display: flex;
+  flex-direction: column;
 }
 
 .span {
@@ -71,7 +91,7 @@ const scrollTexts = ref([
   color: #0743ff;
   line-height: 1;
   font-family: "Big Shoulders Text";
-  font-size: 5em;
+  font-size: 4.6em;
 }
 p {
   margin: 0;
@@ -79,6 +99,6 @@ p {
   color: #ffffff;
   font-family: "Poppins";
   font-size: 5em;
-  margin-left: 1rem;
+  margin-right: 1rem;
 }
 </style>
