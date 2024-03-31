@@ -1,5 +1,58 @@
 <script setup>
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+onMounted(() => {
+  const myElBottom = document.querySelector(".bottom");
+  gsap.registerPlugin(ScrollTrigger);
+
+  ScrollTrigger.create({
+    trigger: myElBottom,
+    start: "top top",
+    end: "bottom top",
+    pin: false,
+    pinSpacing: false,
+    onUpdate: (self) => {
+      const progress = self.progress;
+      const offset = -300;
+      const moveX = progress * offset;
+      gsap.to(myElBottom, { x: moveX });
+    },
+  });
+
+  let myElTitle = document.querySelector(".about-title");
+  let chars = myElTitle.textContent.split("");
+
+  myElTitle.innerHTML = chars.map((c) => `<span>${c}</span>`).join("");
+
+  let spans = Array.from(myElTitle.querySelectorAll("span"));
+
+  spans.forEach((span, i) => {
+    gsap.fromTo(
+      span,
+      { autoAlpha: 0 },
+      {
+        autoAlpha: 1,
+        scrollTrigger: {
+          trigger: ".about-layout",
+          start: "top bottom",
+          end: "bottom bottom",
+          scrub: true,
+          onUpdate: (self) => {
+            let progress = self.progress;
+            let targetIndex = Math.floor(progress * spans.length);
+            if (i <= targetIndex) {
+              gsap.to(span, { autoAlpha: 1 });
+            } else {
+              gsap.to(span, { autoAlpha: 0 });
+            }
+          },
+        },
+      }
+    );
+  });
+});
 
 const scrollTexts = ref([
   "TRLAB",
@@ -17,7 +70,9 @@ const scrollTexts = ref([
 ]);
 </script>
 <template>
+  <!-- back -->
   <view-background />
+  <!-- main home layout -->
   <main class="bottom">
     <div class="bottom-layout">
       <div class="title">
@@ -40,9 +95,49 @@ const scrollTexts = ref([
       </div>
     </div>
   </main>
+  <!-- container layout -->
+  <div class="layout">
+    <div class="about-layout">
+      <p class="about-title">
+        We are fringe figures in fringe science, and have been creating and
+        building for over a decade. Jiangxue Design was founded in 2020,
+        offering free design services to teams it believes in based on design
+        investment, and upon their success, receiving 0~15% of their market
+        value. We search worldwide for teams with various innovative ideas and
+        offer full-stack design and development support.
+      </p>
+    </div>
+  </div>
 </template>
 
 <style scoped>
+/* container */
+.layout {
+  z-index: 0;
+  height: 200vh;
+  position: relative;
+  width: 100vw;
+}
+
+/* about */
+.about-layout {
+  top: 100vh !important;
+  position: absolute;
+  background: rgb(0, 0, 0);
+  width: 100%;
+  height: 100vh;
+}
+
+.about-layout .about-title {
+  font-size: 2rem;
+  padding: 2rem;
+  padding-top: 9rem;
+  line-height: 1.5;
+  color: #ffffff;
+  position: sticky !important;
+  top: -1px;
+}
+
 /* scr */
 .scr {
   margin-top: 3rem;
@@ -62,10 +157,10 @@ const scrollTexts = ref([
 }
 /* layout */
 .bottom {
-  z-index: 1000;
-  position: absolute;
+  z-index: 10;
   /* aspect-ratio: 16/9; */
   height: 100%;
+  position: absolute;
   width: -webkit-fill-available;
 }
 .bottom-layout {

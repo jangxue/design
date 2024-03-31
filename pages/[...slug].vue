@@ -392,7 +392,6 @@ body {
   padding: 0px;
   margin: 0px;
   width: 85%;
-  height: 100%;
   display: block;
   background: #18191a;
 }

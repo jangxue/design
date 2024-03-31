@@ -9,8 +9,8 @@ dependencies:
     specifier: ^2.12.1
     version: 2.12.1(nuxt@3.11.1)(vue@3.4.21)
   '@splinetool/runtime':
-    specifier: ^0.9.425
-    version: 0.9.425
+    specifier: ^1.0.91
+    version: 1.0.91
   '@studio-freight/lenis':
     specifier: ^1.0.42
     version: 1.0.42
@@ -1672,8 +1672,8 @@ packages:
     resolution: {integrity: sha512-+9jVqKhRSpsc591z5vX+X5Yyw+he/HCB4iQ/RYxw35CEPaY1gnsNE43nf9n9AaYjAQrTiI/mOwKUKdUs9vf7Xg==}
     dev: false
 
-  /@splinetool/runtime@0.9.425:
-    resolution: {integrity: sha512-47HPaxXXjJTlG0Dj2SP575daIvL0cd7lKVYRWLSn1X8Ov7efAK6p7Ngw7E69o73PYc7auX0V8gdOXMPmRQJ2PA==}
+  /@splinetool/runtime@1.0.91:
+    resolution: {integrity: sha512-K/JEMJpg7JOfPssY81+R28Znq/JWqa4FK+llCpvh382GageimUByWhxLGE5LvIqJoZ0OzpTB6jEm2DneIoOmGw==}
     dependencies:
       on-change: 4.0.2
       semver-compare: 1.0.0
