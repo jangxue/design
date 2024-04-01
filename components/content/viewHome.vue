@@ -1,5 +1,5 @@
 <script setup>
-import { ref, onMounted } from "vue";
+import { onMounted } from "vue";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -53,21 +53,6 @@ onMounted(() => {
     );
   });
 });
-
-const scrollTexts = ref([
-  "TRLAB",
-  "THESIS",
-  "LI.FINANCE",
-  "TRLAB",
-  "THESIS",
-  "LI.FINANCE",
-  "TRLAB",
-  "THESIS",
-  "LI.FINANCE",
-  "TRLAB",
-  "THESIS",
-  "LI.FINANCE",
-]);
 </script>
 <template>
   <!-- back -->
@@ -98,13 +83,13 @@ const scrollTexts = ref([
   <!-- container layout -->
   <div class="layout">
     <div class="about-layout">
+      <h1>We are fringe figures in fringe science</h1>
       <p class="about-title">
-        We are fringe figures in fringe science, and have been creating and
-        building for over a decade. Jiangxue Design was founded in 2020,
-        offering free design services to teams it believes in based on design
-        investment, and upon their success, receiving 0~15% of their market
-        value. We search worldwide for teams with various innovative ideas and
-        offer full-stack design and development support.
+        Jiangxue Design was founded in 2020, offering free design services to
+        teams it believes in based on design investment, and upon their success,
+        receiving 0~15% of their market value. We search worldwide for teams
+        with various innovative ideas and offer full-stack design and
+        development, as well as security support.
       </p>
     </div>
   </div>
@@ -127,15 +112,27 @@ const scrollTexts = ref([
   width: 100%;
   height: 100vh;
 }
-
-.about-layout .about-title {
-  font-size: 2rem;
-  padding: 2rem;
+.about-layout h1 {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-size: 3rem;
   padding-top: 9rem;
-  line-height: 1.5;
   color: #ffffff;
   position: sticky !important;
   top: -1px;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  line-height: 0;
+}
+.about-layout .about-title {
+  font-size: 1.5rem;
+  padding: 2rem;
+  line-height: 1.5;
+  color: #ffffff;
+  position: sticky !important;
+  width: 50%;
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
 }
 
 /* scr */

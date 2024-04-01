@@ -12,7 +12,7 @@ import { ref, defineProps, onMounted } from "vue";
 const props = defineProps({
     text: {
     type: String,
-    default: "Jiangxue Lab,jiangxue Team,Web3 Acg lab,Web3in Tech,Dexnav,sifone,NPO NETWORK,jointNOW,IENP,CASSI,Wet Spring Alert,spec,seti@home web3,crg fps,Asteroid,splash,Nicho,ienn,hucsrc,zhongshan"
+    default: "Jiangxue Lab,jiangxue Team,Web3 Acg lab,Web3in Tech,sifone,NPO NETWORK,jointNOW,IENP,CASSI,Wet Spring Alert,spec,seti@home web3,crg fps,Asteroid,splash,Nicho,ienn,zhongshan"
   }
 });
 const originalText = props.text;

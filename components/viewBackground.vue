@@ -1,11 +1,9 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from "vue";
-import { Application } from "@splinetool/runtime";
 
 const specialChars = "-+";
 const fullscreenContent = ref(null);
 let timerId;
-const canvas3d = ref(null);
 const generateRandomChars = () => {
   const randomChars = Array.from(
     { length: Math.ceil((window.innerWidth * window.innerHeight) / 100) },
@@ -15,12 +13,6 @@ const generateRandomChars = () => {
 };
 
 onMounted(() => {
-  const app = new Application(canvas3d.value);
-  app
-    .load("https://prod.spline.design/fE-bCphQyWmK0tKW/scene.splinecode")
-    .then(() => {
-      loading.value = false;
-    });
   generateRandomChars();
   timerId = setInterval(generateRandomChars, 300);
   const updateSize = () => {
@@ -40,7 +32,7 @@ onUnmounted(() => {
 <template>
   <main>
     <p class="fullscreen-characters" ref="fullscreenContent"></p>
-    <canvas class="logo-bg" ref="canvas3d" id="canvas3d"></canvas>
+    <img class="logo-bg" src="/img/logo/background.gif" />
   </main>
 </template>
 
@@ -63,11 +55,12 @@ onUnmounted(() => {
 
 /* logo bg */
 .logo-bg {
-  width: 60vw;
+  width: 130vw;
   z-index: -1;
   position: absolute;
   mix-blend-mode: soft-light;
   right: 0;
+  top: -3rem;
   height: 100vh;
 }
 </style>
