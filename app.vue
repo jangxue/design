@@ -43,7 +43,7 @@ onMounted(() => {
 
   const mouseMoveHandler = (event: MouseEvent) => {
     gsap.to(followerElem, {
-      duration: 0.3,
+      duration: 0,
       x: event.clientX - containerElem.offsetLeft,
       y: event.clientY - containerElem.offsetTop,
     });
@@ -68,7 +68,6 @@ onMounted(() => {
   });
 });
 </script>
-
 <style scoped>
 .header {
   position: fixed;
@@ -76,9 +75,9 @@ onMounted(() => {
 }
 .follower {
   position: absolute;
-  width: 10rem;
-  height: 1rem;
+  width: 1px;
+  height: 1px;
+  box-shadow: 0px 10px 200px 90px #1100ff;
   background-color: #1100ff;
-  border-radius: 100%;
 }
 </style>

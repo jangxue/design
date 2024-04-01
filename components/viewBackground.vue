@@ -6,7 +6,7 @@ const fullscreenContent = ref(null);
 let timerId;
 const generateRandomChars = () => {
   const randomChars = Array.from(
-    { length: Math.ceil((window.innerWidth * window.innerHeight) / 100) },
+    { length: Math.ceil((window.innerWidth * window.innerHeight) / 80) },
     () => specialChars[Math.floor(Math.random() * specialChars.length)]
   ).join("");
   fullscreenContent.value.textContent = randomChars;

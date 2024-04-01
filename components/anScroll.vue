@@ -54,5 +54,6 @@ ul li {
   margin: 0;
   list-style-type: none;
   text-transform: uppercase;
+  font-family: "Poppins", sans-serif;
 }
 </style>
