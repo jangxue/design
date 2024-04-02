@@ -55,6 +55,8 @@ onMounted(() => {
 });
 </script>
 <template>
+  <!-- background -->
+  <div class="back" />
   <!-- back -->
   <view-background />
   <!-- main home layout -->
@@ -83,14 +85,16 @@ onMounted(() => {
   <!-- container layout -->
   <div class="layout">
     <div class="about-layout">
-      <h1>We are fringe figures in fringe science</h1>
-      <p class="about-title">
-        Jiangxue Design was founded in 2020, offering free design services to
-        teams it believes in based on design investment, and upon their success,
-        receiving 0~15% of their market value. We search worldwide for teams
-        with various innovative ideas and offer full-stack design and
-        development, as well as security support.
-      </p>
+      <main class="about-title-layout">
+        <h1>We are fringe figures in fringe science</h1>
+        <p class="about-title">
+          Jiangxue Design was founded in 2020, offering free design services to
+          teams it believes in based on design investment, and upon their
+          success, receiving 0~15% of their market value. We search worldwide
+          for teams with various innovative ideas and offer full-stack design
+          and development, as well as security support.
+        </p>
+      </main>
     </div>
   </div>
 </template>
@@ -115,24 +119,35 @@ onMounted(() => {
 .about-layout h1 {
   font-family: "Poppins", sans-serif;
   font-weight: 400;
-  font-size: 3rem;
-  padding-top: 9rem;
+  font-size: 1.7rem;
+  width: 18%;
   color: #ffffff;
   position: sticky !important;
   top: -1px;
-  padding-left: 2rem;
-  padding-right: 2rem;
-  line-height: 0;
+  margin-left: 2rem;
+  margin-right: 2rem;
+  padding-right: 30px;
+  border-right: 2px solid #003eff;
+}
+
+.about-title-layout {
+  display: flex;
+  margin: 0 auto;
+  flex-direction: row;
+  align-items: flex-start;
+  margin-top: 19rem;
 }
 .about-layout .about-title {
   font-size: 1.5rem;
   padding: 2rem;
+  padding-top: 0;
   line-height: 1.5;
   color: #ffffff;
   position: sticky !important;
   width: 50%;
   font-family: "Poppins", sans-serif;
   font-weight: 300;
+  text-align: justify;
 }
 
 /* scr */
@@ -192,5 +207,15 @@ p {
   font-family: "Poppins";
   font-size: 5em;
   margin-right: 1rem;
+}
+
+/* back */
+.back {
+    background-image: url("/img/res/back.png");
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    display: block;
+    position: absolute;
 }
 </style>

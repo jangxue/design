@@ -1,6 +1,7 @@
 <template>
   <div ref="container">
     <div ref="follower" class="follower"></div>
+    <cm-sidebar />
     <view-header class="header" />
     <div class="con">
       <NuxtPage />
@@ -53,9 +54,6 @@ onMounted(() => {
 
   const lenis: Lenis = new Lenis();
   if (typeof window !== "undefined") {
-    lenis.on("scroll", (e: LenisEvent) => {
-      console.log(e);
-    });
     function raf(time: number) {
       lenis.raf(time);
       requestAnimationFrame(raf);
