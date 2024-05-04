@@ -1,5 +1,5 @@
 <script setup>
-import { ref, onMounted, onUnmounted } from "vue";
+import { ref, onMounted, onUnmounted, nextTick } from "vue";
 
 const specialChars = "-+";
 const fullscreenContent = ref(null);
@@ -12,7 +12,7 @@ const generateRandomChars = () => {
   fullscreenContent.value.textContent = randomChars;
 };
 
-onMounted(() => {
+onMounted(async () => {
   generateRandomChars();
   timerId = setInterval(generateRandomChars, 300);
   const updateSize = () => {
@@ -22,6 +22,10 @@ onMounted(() => {
   };
   updateSize();
   window.addEventListener("resize", updateSize);
+
+  await nextTick();
+  const loadDiv = document.querySelector('.load');
+  if (loadDiv) loadDiv.style.display = 'none';
 });
 
 onUnmounted(() => {
@@ -30,13 +34,21 @@ onUnmounted(() => {
 </script>
 
 <template>
+  <div class="load"></div>
   <main>
     <p class="fullscreen-characters" ref="fullscreenContent"></p>
-    <img class="logo-bg" src="/img/logo/background.gif" />
+    <img class="logo-bg" src="/img/logo/background.gif" alt="background-img" />
   </main>
 </template>
 
 <style scoped>
+.load {
+    position: absolute;
+    background: rgb(0, 0, 0);
+    width: 100%;
+    height: 100%;
+    z-index: 3;
+}
 /* data */
 .fullscreen-characters {
   text-align: center;

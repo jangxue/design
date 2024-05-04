@@ -24,7 +24,7 @@ main {
   top: 50%;
   -webkit-transform: translateY(-50%);
   transform: translateY(-50%);
-  padding: 25px;
+  padding: 15px;
   align-items: center;
   transition: color 4s;
 }

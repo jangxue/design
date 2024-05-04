@@ -34,7 +34,7 @@ onMounted(() => {
       toggleActions: "play pause resume reset",
       end: "bottom bottom",
       scrub: true,
-      markers: true,
+    //   markers: true,
     },
     backgroundColor: "#000",
   });

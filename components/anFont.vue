@@ -65,7 +65,6 @@ onMounted(() => {
     Array.isArray(textSequenceRef.value) &&
     textSequenceRef.value.length > 0
   ) {
-    const scrambledText = ref(textSequenceRef.value[currentTextIndex]);
     animateTextShuffle();
   } else {
     console.error("Invalid or empty text sequence provided as prop.");

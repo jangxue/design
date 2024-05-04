@@ -2,11 +2,11 @@
   <main>
     <div class="layout">
       <div class="logo">
-        <img src="/img/logo/sif-logo-w.svg" />
+        <img src="/img/logo/sif-logo-w.svg" alt="logo" />
         <p>The combination of design and investment.</p>
       </div>
       <div>
-        <img src="/img/res/menu.svg" />
+        <img src="/img/res/menu.svg" alt="menu" />
       </div>
     </div>
   </main>
@@ -29,7 +29,6 @@ main {
   display: flex;
 }
 p {
-  font-family: "3270NerdFontRegular";
   background: #ffffff;
   color: #000;
   padding: 0.3rem;

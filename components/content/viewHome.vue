@@ -38,7 +38,7 @@ onMounted(() => {
           trigger: ".about-layout",
           start: "top bottom",
           end: "bottom bottom",
-          scrub: true,
+        //   scrub: true,
           onUpdate: (self) => {
             let progress = self.progress;
             let targetIndex = Math.floor(progress * spans.length);
@@ -96,6 +96,11 @@ onMounted(() => {
         </p>
       </main>
     </div>
+    <div class="team-layout">
+      <main class="team-layout-title">
+        <h1>Team</h1>
+      </main>
+    </div>
   </div>
 </template>
 
@@ -103,7 +108,7 @@ onMounted(() => {
 /* container */
 .layout {
   z-index: 0;
-  height: 200vh;
+  height: 300vh;
   position: relative;
   width: 100vw;
 }
@@ -115,6 +120,33 @@ onMounted(() => {
   background: rgb(0, 0, 0);
   width: 100%;
   height: 100vh;
+}
+.team-layout {
+  top: 200vh !important;
+  position: absolute;
+  background: #f2f2f2;
+  width: 100%;
+  height: 100vh;
+}
+.team-layout-title {
+  display: flex;
+  margin: 0 auto;
+  flex-direction: row;
+  align-items: flex-start;
+  margin-top: 19rem;
+}
+.team-layout-title h1 {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-size: 1.7rem;
+  width: 18%;
+  color: #000;
+  position: sticky !important;
+  top: -1px;
+  margin-left: 2rem;
+  margin-right: 2rem;
+  padding-right: 30px;
+  border-right: 2px solid #003eff;
 }
 .about-layout h1 {
   font-family: "Poppins", sans-serif;
@@ -155,7 +187,6 @@ onMounted(() => {
   margin-top: 3rem;
 }
 .scr-title {
-  font-family: "3270NerdFontRegular";
   background: #ffffff;
   color: #000;
   padding: 0.3rem;
@@ -170,7 +201,6 @@ onMounted(() => {
 /* layout */
 .bottom {
   z-index: 10;
-  /* aspect-ratio: 16/9; */
   height: 100%;
   position: absolute;
   width: -webkit-fill-available;
@@ -197,7 +227,7 @@ onMounted(() => {
   margin: 0;
   color: #0743ff;
   line-height: 1;
-  font-family: "Big Shoulders Text";
+  font-family: "Big Shoulders Text", sans-serif;
   font-size: 4.6em;
 }
 p {
@@ -211,11 +241,11 @@ p {
 
 /* back */
 .back {
-    background-image: url("/img/res/back.png");
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-    display: block;
-    position: absolute;
+  background-image: url("/img/res/back.png");
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  display: block;
+  position: absolute;
 }
 </style>
